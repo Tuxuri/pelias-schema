@@ -7,12 +7,12 @@
 # EG. 'rd' is NOT a prefix of 'road' so it IS included here.
 #
 # the term 'safe' refers to whether the token may be expanded without causing
-# other issues; in general ask yourself "if i expand `byu => bayou` will this cause
+# other issues; in general ask yourself=> if i expand `byu => bayou` will this cause
 # issues with other tokens which *begin with byu?"
 #
 # EG. 'pr' is disabled as it would cause jitter when autocompleting any place
 # name beginning with 'pr' such as 'princeton', on the second keypress the
-# results would likely all contain names which are/begin with "pier".
+# results would likely all contain names which are/begin with=> pier".
 #
 # EG. 'ct' is disabled as expanding it to 'court' would possibly conflict with
 # the state abbreviation for 'Connecticut'.
@@ -118,3 +118,11 @@ tpke => turnpike
 vly => valley
 vlg => village
 wy => way
+jln => jalan
+tmn => taman
+bdr => bandar
+kg => kampung
+bkt => bukit
+sg => sungai
+bt => batu
+lrg => lorong

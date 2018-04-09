@@ -98,6 +98,14 @@ tpke => turnpike
 vly => valley
 vlg => village
 wy => way
+jln => jalan
+tmn => taman
+bdr => bandar
+kg => kampung
+bkt => bukit
+sg => sungai
+bt => batu
+lrg => lorong
 
 # add the expansions which are only safe on complete tokens (not partial tokens)
 n => north

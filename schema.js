@@ -7,7 +7,8 @@ var schema = {
       the _default_ mapping is applied to all new _type dynamically added after
       the index was created, see comment below for more info.
     **/
-    _default_: doc,
+    // _default_: doc,
+    doc: doc,
 
     /**
       these `_type`s are created when the index is created, while all other `_type`
@@ -19,21 +20,21 @@ var schema = {
 
       querying against non-existant _types will result in errors.
     **/
-    venue: doc,
-    address: doc,
-    street: doc,
-    neighbourhood: doc,
-    borough: doc,
-    postalcode: doc,
-    locality: doc,
-    localadmin: doc,
-    county: doc,
-    macrocounty: doc,
-    region: doc,
-    macroregion: doc,
-    dependency: doc,
-    country: doc
-  }
+    // venue: doc,
+    // address: doc,
+    // street: doc,
+    // neighbourhood: doc,
+    // borough: doc,
+    // postalcode: doc,
+    // locality: doc,
+    // localadmin: doc,
+    // county: doc,
+    // macrocounty: doc,
+    // region: doc,
+    // macroregion: doc,
+    // dependency: doc,
+    // country: doc
+  },
 };
 
 module.exports = schema;

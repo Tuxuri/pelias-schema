@@ -6,7 +6,6 @@ var literal = require('./partial/literal');
 
 var schema = {
   properties: {
-
     // data partitioning
     source: literal,
     layer: literal,
@@ -24,26 +23,26 @@ var schema = {
       dynamic: true,
       properties: {
         name: {
-          type: 'string',
+          type: 'text',
           analyzer: 'keyword',
         },
         unit: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasUnit',
         },
         number: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasHousenumber',
         },
         street: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasStreet',
         },
         zip: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasZip',
-        }
-      }
+        },
+      },
     },
 
     // hierarchy
@@ -51,7 +50,6 @@ var schema = {
       type: 'object',
       dynamic: true,
       properties: {
-
         // https://github.com/whosonfirst/whosonfirst-placetypes#country
         country: admin,
         country_a: admin,
@@ -105,8 +103,8 @@ var schema = {
         // https://github.com/whosonfirst/whosonfirst-placetypes#postalcode
         postalcode: postalcode,
         postalcode_a: postalcode,
-        postalcode_id: literal
-      }
+        postalcode_id: literal,
+      },
     },
 
     // geography
@@ -118,40 +116,45 @@ var schema = {
     source_id: literal,
     category: literal,
     population: multiplier,
-    popularity: multiplier
+    popularity: multiplier,
   },
-  dynamic_templates: [{
-    nameGram: {
-      path_match: 'name.*',
-      match_mapping_type: 'string',
-      mapping: {
-        type: 'string',
-        analyzer: 'peliasIndexOneEdgeGram',
-        fielddata : {
-          loading: 'eager_global_ordinals'
-        }
-      }
+  dynamic_templates: [
+    {
+      nameGram: {
+        path_match: 'name.*',
+        match_mapping_type: 'string',
+        mapping: {
+          type: 'text',
+          analyzer: 'peliasIndexOneEdgeGram',
+          fielddata: true,
+          // fielddata: {
+          //   loading: 'eager_global_ordinals',
+          // },
+        },
+      },
     },
-  },{
-    phrase: {
-      path_match: 'phrase.*',
-      match_mapping_type: 'string',
-      mapping: {
-        type: 'string',
-        analyzer: 'peliasPhrase',
-        fielddata : {
-          loading: 'eager_global_ordinals'
-        }
-      }
-    }
-  }],
+    {
+      phrase: {
+        path_match: 'phrase.*',
+        match_mapping_type: 'string',
+        mapping: {
+          type: 'text',
+          analyzer: 'peliasPhrase',
+          fielddata: true,
+          // fielddata: {
+          //   loading: 'eager_global_ordinals',
+          // },
+        },
+      },
+    },
+  ],
   _source: {
-    excludes : ['shape','phrase']
+    excludes: ['shape', 'phrase'],
   },
   _all: {
-    enabled: false
+    enabled: false,
   },
-  dynamic: 'true'
+  dynamic: 'true',
 };
 
 module.exports = schema;
